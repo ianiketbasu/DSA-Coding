@@ -67,8 +67,7 @@ class Solution(object):
                 col_zero = True
             for j in range(1, col):
                 if matrix[i][j] == 0:
-                    matrix[i][0] = 0
-                    matrix[0][j] = 0
+                    matrix[i][0] , matrix[0][j] = 0 , 0
 
         for i in range(row - 1, -1, -1):
             for j in range(col - 1, 0, -1):

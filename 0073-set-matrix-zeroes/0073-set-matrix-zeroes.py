@@ -31,6 +31,9 @@ class Solution(object):
             makeZero(coordinate)
         """
         
+        
+        
+        """
         row , col = len(matrix) , len(matrix[0])
         
         list1 , list2 = [1]*row, [1]*col
@@ -50,6 +53,29 @@ class Solution(object):
             if list1[r] == 0 or list2[c] == 0 :
                 matrix[r][c] = 0
         
+        """
+        
+        
+
+        
+       
+        row, col = len(matrix), len(matrix[0])
+        col_zero = False
+
+        for i in range(row):
+            if matrix[i][0] == 0:
+                col_zero = True
+            for j in range(1, col):
+                if matrix[i][j] == 0:
+                    matrix[i][0] = 0
+                    matrix[0][j] = 0
+
+        for i in range(row - 1, -1, -1):
+            for j in range(col - 1, 0, -1):
+                if matrix[0][j] == 0 or matrix[i][0] == 0:
+                    matrix[i][j] = 0
+            if col_zero:
+                matrix[i][0] = 0
         
         
         

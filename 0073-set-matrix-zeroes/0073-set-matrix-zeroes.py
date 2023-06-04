@@ -4,6 +4,8 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
+        
+        """
         row , col = len(matrix) , len(matrix[0])
         coordinates = []
         def makeZero(coordinate) :
@@ -27,3 +29,29 @@ class Solution(object):
             
         for coordinate in coordinates :
             makeZero(coordinate)
+        """
+        
+        row , col = len(matrix) , len(matrix[0])
+        
+        list1 , list2 = [1]*row, [1]*col
+        
+        
+        for i in range(0,row*col) :
+            r , c = int(i/col) , int(i%col)
+
+            if matrix[r][c] == 0 :
+                list1[r] , list2[c] = 0 , 0
+        
+        
+        
+        for i in range(0,row*col) :
+            r , c = int(i/col) , int(i%col)
+            
+            if list1[r] == 0 or list2[c] == 0 :
+                matrix[r][c] = 0
+        
+        
+        
+        
+        
+        

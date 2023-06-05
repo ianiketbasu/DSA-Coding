@@ -1,29 +1,29 @@
-class Solution(object):
-    def nextPermutation(self,nums):
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
         n = len(nums)
-        if n == 1:
-            return
-
-        last_inc = -1
-        i = 1
-        while i < n:
-            if nums[i] > nums[i-1]:
-                last_inc = i
+        if n == 1 : return
+        
+        peak_index , i = -1 , 1
+        
+        while i < n :
+            if nums[i-1] < nums[i] :
+                peak_index = i
             i += 1
-
-        if last_inc == -1:
+        
+        if peak_index == -1 :
             nums.reverse()
             return
+        
+        swap_index = peak_index
+        for i in range(peak_index , n) :
+            if nums[i] > nums[peak_index - 1] and nums[i] < nums[peak_index] :
+                swap_index = i
+        
+        nums[peak_index - 1] , nums[swap_index] = nums[swap_index] , nums[peak_index-1]
+        nums[peak_index:] = sorted(nums[peak_index : ])         
+        return
 
-        last_inc_val = nums[last_inc]
-        index = last_inc
-        for i in range(last_inc, n):
-            if nums[i] > nums[last_inc-1]:
-                index = i
-
-        nums[last_inc-1], nums[index] = nums[index], nums[last_inc-1]
-        nums[last_inc:] = sorted(nums[last_inc:])
-
-      
-
-
+        

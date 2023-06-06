@@ -5,6 +5,7 @@ SELECT
   a.city,
   a.state
 FROM 
-  Person p
+  Person as p
 LEFT JOIN 
-  Address a ON p.personId = a.personId;
+  # Address as a ON p.personId = a.personId;
+  Address as a USING(personId)

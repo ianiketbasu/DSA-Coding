@@ -10,9 +10,24 @@ class Solution:
             
     
            # for mutable array
-           for i in range(0,len(nums)) :
-                if nums[abs(nums[i])] < 0 :
-                    return abs(nums[i])
-                else :
-                    nums[abs(nums[i])] = -nums[abs(nums[i])]
+           # for i in range(0,len(nums)) :
+           #      if nums[abs(nums[i])] < 0 :
+           #          return abs(nums[i])
+           #      else :
+           #          nums[abs(nums[i])] = -nums[abs(nums[i])]
+            
+            slow , fast = nums[0] , nums[0]
+            while True :
+                slow = nums[slow]
+                fast = nums[nums[fast]]
+                if slow == fast :
+                    break
+            
+            fast = nums[0]
+            
+            while slow != fast :
+                slow = nums[slow]
+                fast = nums[fast]
+                
+            return fast
             

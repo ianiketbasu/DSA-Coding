@@ -1,6 +1,6 @@
 class Solution:
-    def majorityElement(self, nums: List[int]) -> List[int]:
-#         my_map = {}
+#     def majorityElement(self, nums: List[int]) -> List[int]:
+# #         my_map = {}
 #         li = []
 #         for num in nums :
 #             if num in my_map :
@@ -46,8 +46,28 @@ class Solution:
         
 #         return li
 
-        return [n for n in set(nums) if nums.count(n) > len(nums) / 3]
+        # return [n for n in set(nums) if nums.count(n) > len(nums) / 3]
 
+    
+    def majorityElement(self, nums):
+        ctr = collections.Counter()
+        for n in nums:
+            # print("for ",n," : ---------")
+            ctr[n] += 1
+            # print("=======")
+            # print(ctr)
+            # print("=======")
+            if len(ctr) == 3:
+                # print("------")
+                # print(ctr)
+                
+                ctr -= collections.Counter(set(ctr))
+                
+        #         print(ctr)
+        #         print("------")
+        #     print("end of loop\n\n")
+        # print(ctr)
+        return [n for n in ctr if nums.count(n) > len(nums)/3]
 
 
 

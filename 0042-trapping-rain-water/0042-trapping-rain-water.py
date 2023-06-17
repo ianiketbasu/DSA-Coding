@@ -24,18 +24,42 @@ class Solution:
 #         return water
 
 
-        water , level = 0 , 0
-        l , r = 0 , len(height) - 1
+#         water , level = 0 , 0
+#         l , r = 0 , len(height) - 1
         
-        while l < r :
-            lower = height[l] if height[l] < height[r] else height[r]
-            level = max(lower,level)
+#         while l < r :
+#             lower = height[l] if height[l] < height[r] else height[r]
+#             level = max(lower,level)
             
-            water += level - lower
+#             water += level - lower
             
-            if height[l] < height[r] :
+#             if height[l] < height[r] :
+#                 l += 1
+#             else :
+#                 r -= 1
+        
+#         return water
+
+            
+        water = 0
+        n = len(height)
+        maxLeft , maxRight= height[0] , height[n-1]
+        l , r = 1 , n-2
+        
+        while l <= r :
+            if maxLeft < maxRight :
+                if maxLeft < height[l] :
+                    maxLeft = height[l]
+                else :
+                    water += maxLeft - height[l]
                 l += 1
             else :
+                if maxRight < height[r] :
+                    maxRight = height[r]
+                else :
+                    water += maxRight - height[r]
                 r -= 1
         
         return water
+            
+            

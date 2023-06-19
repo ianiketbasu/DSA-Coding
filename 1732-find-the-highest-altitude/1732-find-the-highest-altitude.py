@@ -9,4 +9,5 @@ class Solution:
             # gain[:] = accumulate(gain)
             # print(gain)
         
-            return max([0] + list(accumulate(gain)))
+            # return max([0] + list(accumulate(gain)))
+            return max(0,max(list(accumulate(gain))))

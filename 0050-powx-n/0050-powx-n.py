@@ -19,8 +19,10 @@ class Solution:
             n = abs(n)
             while n > 0 :
                 if n%2 == 1 :
+                    # print(n,x)
                     ans *= x
                 x *= x
                 n //= 2
+                # print("x : " , x , "n : ",n)
                 
             return 1 / ans if flg else ans

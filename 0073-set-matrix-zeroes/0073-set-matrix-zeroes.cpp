@@ -24,42 +24,65 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& mat) {
-//         int row = mat.size() , col = mat[0].size();
-//         bool col0 = false;
-        
-//         for(int i=0 ; i<row ; i++){
-//             if(mat[i][0] == 0) col0 = true;
-//             for(int j=1 ; j<col ; j++)
-//                 if(mat[i][j] == 0)
-//                     mat[i][0] = mat[0][j] = 0;
-//         }
-        
-//         for(int i=row-1 ; i>=0 ; i--){
-//             for(int j=col-1 ; j>=1 ; j--)
-//                 if(mat[i][0] == 0 or mat[0][j] == 0) mat[i][j] = 0;
-//                 if(col0) mat[i][0] = 0;
-//         }
-        
-        
+  
         int row = mat.size() , col = mat[0].size();
-        vector<int> r(row,0) , c(col,0);
+//         vector<int> r(row,0) , c(col,0);
+//         for(int i=0;i<row;i++){
+//             for(int j=0;j<col;j++){
+//                 if(mat[i][j] == 0){
+//                     r[i] = 1;
+//                     c[j] = 1;
+//                 }
+//             }
+//         }
+        
+//         for(int i=0;i<row;i++){
+//             for(int j=0;j<col;j++){
+//                 if(r[i] or c[j]){
+//                     mat[i][j] = 0;
+//                 }
+//             }
+//         }
+        int colZero = 1 ;
         for(int i=0;i<row;i++){
             for(int j=0;j<col;j++){
+                
                 if(mat[i][j] == 0){
-                    r[i] = 1;
-                    c[j] = 1;
+                    mat[i][0] = 0;
+                    if(j!=0) mat[0][j] = 0;
+                    else colZero = 0;
                 }
             }
         }
-        
-        for(int i=0;i<row;i++){
-            for(int j=0;j<col;j++){
-                if(r[i] or c[j]){
+
+        for(int i=1;i<row;i++){
+            for(int j=1;j<col;j++){
+                if(mat[i][j] !=0){
+                    if(mat[0][j] == 0 || mat[i][0] == 0) 
                     mat[i][j] = 0;
                 }
             }
         }
+    
+        if(mat[0][0] == 0){
+            for(int i=0;i<col;i++)
+                mat[0][i] = 0;
+        }
+        if(colZero == 0){
+            for(int i=0;i<row;i++){
+                mat[i][0] = 0;
+            }
+        }
+    
+    
+    
+    
+    
+    }
+        
+        
+         
         
             
-    }
+
 };

@@ -57,10 +57,10 @@ public:
 
         for(int i=1;i<row;i++){
             for(int j=1;j<col;j++){
-                if(mat[i][j] !=0){
+
                     if(mat[0][j] == 0 || mat[i][0] == 0) 
                     mat[i][j] = 0;
-                }
+                
             }
         }
     

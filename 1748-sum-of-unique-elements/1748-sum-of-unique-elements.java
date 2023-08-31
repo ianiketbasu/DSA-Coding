@@ -13,9 +13,15 @@ class Solution {
         
         int sum = 0;
         
-        for(int i=0;i<nums.length;i++){
-            if(my_map.get(nums[i]) == 1){
-                sum += nums[i];
+        // for(int i=0;i<nums.length;i++){
+        //     if(my_map.get(nums[i]) == 1){
+        //         sum += nums[i];
+        //     }
+        // }
+        
+        for(Map.Entry<Integer,Integer> entry : my_map.entrySet()){
+            if(entry.getValue() == 1){
+                sum += entry.getKey();
             }
         }
         return sum;

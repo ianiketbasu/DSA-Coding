@@ -1,22 +1,24 @@
 /**
  * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        ListNode prev = null , curr = head , temp = null;
-        while(curr!= null){
-            temp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = temp;
-        }
-        return prev;
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+    let prev = null;
+    let curr = head;
+    
+    while(curr){
+        const temp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = temp;
     }
-}
+    
+    return prev;
+};

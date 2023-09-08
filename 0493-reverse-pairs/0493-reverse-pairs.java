@@ -37,9 +37,6 @@ class Solution {
         return count;
     }
     
-    
-    
-   
 
     public int mergeSort(int[] nums,int low,int high){
         int count = 0;
@@ -47,8 +44,7 @@ class Solution {
         int mid = (low+high) / 2;
         
             
-        count += mergeSort(nums,low,mid);
-        count += mergeSort(nums,mid+1,high);
+        count += mergeSort(nums,low,mid) + mergeSort(nums,mid+1,high);
             
         count += merge(nums,low,mid,high);
 

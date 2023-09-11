@@ -39,7 +39,7 @@ class Solution {
           List<List<Integer>> res = new ArrayList();
           Map<Integer, List<Integer>> groups = new HashMap<>();
           for (int i = 0; i < gz.length; ++i) {
-            List<Integer> list = groups.computeIfAbsent(gz[i], expression -> new ArrayList());
+            List<Integer> list = groups.computeIfAbsent(gz[i], expression -> {return new ArrayList();});
             list.add(i);
             if (list.size() == gz[i]) {
               res.add(list);

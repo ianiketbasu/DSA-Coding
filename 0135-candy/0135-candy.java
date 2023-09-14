@@ -9,12 +9,7 @@ class Solution {
             if(ratings[i] > ratings[i-1]){
                 candyArr[i] = candyArr[i-1] + 1;
             }
-        }
-        
-        for(int c : candyArr){
-            System.out.print(c+",");
-        }
-        System.out.println();
+        } 
         
         
         for(int i=len-2;i>-1;i--){
@@ -22,12 +17,7 @@ class Solution {
                 candyArr[i] = candyArr[i+1] + 1;
             }
         }
-        
-        
-        for(int c : candyArr){
-            System.out.print(c+",");
-        }
-        
+
         
         int totalCandy = 0;
         for(int candy : candyArr){

@@ -8,7 +8,6 @@ public:
         for(auto it : mpp) {
             if(it.second > n/4) return it.first;
         }
-    
         return 0;
     }
 };
